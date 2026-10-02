@@ -10,15 +10,19 @@ const Part = (props) => {
 const Content = (props) => {
   return (
     <div>
-      <Part name={props.part1.name} units={props.part1.units} />
-      <Part name={props.part2.name} units={props.part2.units} />
-      <Part name={props.part3.name} units={props.part3.units} />
+      <Part name={props.parts[0].name} units={props.parts[0].units} />
+      <Part name={props.parts[1].name} units={props.parts[1].units} />
+      <Part name={props.parts[2].name} units={props.parts[2].units} />
     </div>
   )
 }
 
 const Total = (props) => {
-  return <p>Total units: {props.total}</p>
+  return (
+    <p>
+      Total units: {props.parts[0].units + props.parts[1].units + props.parts[2].units}
+    </p>
+  )
 }
 
 const Footer = (props) => {
@@ -26,18 +30,21 @@ const Footer = (props) => {
 }
 
 const App = () => {
-  const course = 'Information Technology'
-  const part1 = { 
-    name: 'CSIT340 - Industry Elective', 
-    units: 3 
-  }
-  const part2 = { 
-    name: 'CSIT327 - Information Technology', 
-    units: 3 }
-  const part3 = { 
-    name: 'IT365 - Data Analytics 1', 
-    units: 3 
-  }
+  const course = 'CSIT340 - Industry Elective'
+  const parts = [
+    {
+      name: 'CSIT327 - Information Technology',
+      units: 3
+    },
+    {
+      name: 'IT365 - Data Analytics 1',
+      units: 3
+    },
+    {
+      name: 'CSIT340 - Industry Elective',
+      units: 3
+    }
+  ]
 
   const fullName = 'Charles Darwin M Bullo'
   const courseCode = 'CSIT340'
@@ -46,8 +53,8 @@ const App = () => {
   return (
     <div>
       <Header course={course} />
-      <Content part1={part1} part2={part2} part3={part3} />
-      <Total total={part1.units + part2.units + part3.units} />
+      <Content parts={parts} />
+      <Total parts={parts} />
       <Footer fullName={fullName} courseCode={courseCode} section={section} />
     </div>
   )
