@@ -30,21 +30,23 @@ const Footer = (props) => {
 }
 
 const App = () => {
-  const course = 'CSIT340 - Industry Elective'
-  const parts = [
-    {
-      name: 'CSIT327 - Information Technology',
-      units: 3
-    },
-    {
-      name: 'IT365 - Data Analytics 1',
-      units: 3
-    },
-    {
-      name: 'CSIT340 - Industry Elective',
-      units: 3
-    }
-  ]
+  const course = {
+    name: 'CSIT340 - Industry Elective',
+    parts: [
+      {
+        name: 'CSIT327 - Information Technology',
+        units: 3
+      },
+      {
+        name: 'IT365 - Data Analytics 1',
+        units: 3
+      },
+      {
+        name: 'CSIT340 - Industry Elective',
+        units: 3
+      }
+    ]
+  }
 
   const fullName = 'Charles Darwin M Bullo'
   const courseCode = 'CSIT340'
@@ -52,9 +54,9 @@ const App = () => {
 
   return (
     <div>
-      <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Header course={course.name} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
       <Footer fullName={fullName} courseCode={courseCode} section={section} />
     </div>
   )
